@@ -1,0 +1,5 @@
+yum_list:
+  - httpd
+  - php
+dokuwiki_rc_url: https://download.dokuwiki.org/src/dokuwiki/dokuwiki-rc.tgz
+

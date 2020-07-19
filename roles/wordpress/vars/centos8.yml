@@ -1,0 +1,16 @@
+yum_list:
+  - httpd
+  - php
+  - php-devel
+  - php-pdo
+  - php-gd
+  - php-mysqlnd
+  - php-mbstring
+  - php-pear
+  - php-json
+  - php-xml 
+  - php-pecl-json
+  - mariadb-server
+wordpress_mysql_password: password
+wordpress_url: https://ja.wordpress.org/latest-ja.tar.gz
+

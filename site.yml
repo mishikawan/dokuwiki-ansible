@@ -1,0 +1,6 @@
+- name: setup dokuwiki
+  hosts: servers
+  roles:
+   - common
+   - dokuwiki
+   - wordpress

@@ -1,0 +1,52 @@
+- include: tasks/check.yml
+
+- name: yum install httpd
+  yum:
+    name: "{{ yum_list }}"
+
+- name: Download wordpress
+  get_url:
+    url: "{{ wordpress_url }}"
+    dest: /tmp/wordpress.tgz
+
+- name: tar wordpress
+  unarchive:
+      src: /tmp/wordpress.tgz
+      dest: /var/www/html
+      remote_src: yes
+      owner: apache
+      group: apache
+
+- name: enabled and start mariadb
+  service:
+    name: mariadb
+    state: started
+    enabled: yes
+
+- name: create database
+  mysql_db:
+    name: wordpress
+    encoding: utf8
+    collation: utf8_bin
+    state: present
+
+- name: create dbuser wordpress
+  mysql_user:
+    name: wordpress
+    password: "{{ wordpress_mysql_password }}"
+    priv: 'wordpress.*:ALL,GRANT'
+    state: present
+  no_log: true
+
+- name: enabled and start httpd
+  service:
+    name: php-fpm
+    state: started
+    enabled: yes
+
+- name: enabled and start httpd
+  service:
+    name: httpd
+    state: started
+    enabled: yes
+

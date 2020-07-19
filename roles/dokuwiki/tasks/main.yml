@@ -1,0 +1,31 @@
+- include: tasks/check.yml
+
+- name: yum install httpd
+  yum:
+    name: "{{ yum_list }}"
+
+- name: Download dokuwiki
+  get_url:
+    url: "{{ dokuwiki_rc_url }}"
+    dest: /tmp/doku.tgz
+
+- name: tar dokuwiki
+  unarchive:
+      src: /tmp/doku.tgz
+      dest: /var/www/html
+      remote_src: yes
+      owner: apache
+      group: apache
+
+- name: enabled and start httpd
+  service:
+    name: php-fpm
+    state: started
+    enabled: yes
+
+- name: enabled and start httpd
+  service:
+    name: httpd
+    state: started
+    enabled: yes
+
