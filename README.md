@@ -28,7 +28,6 @@ CentOS8環境に、dokuwikiを自動設定する
 testsv01 ansible_ssh_host=192.168.11.1 ansible_ssh_user=root
 [all:vars]
 timezone="Asia/Tokyo"
-zabbix_server_ip="192.168.11.1"
 ```
 
 ### playbook実行
