@@ -23,4 +23,4 @@ jobs:
           service_account: "${{ env.SA_ACCOUNT }}"
           workload_identity_provider: "${{ env.WI_PROVIDER }}"
       - uses: google-github-actions/setup-gcloud@v2
-      - run: gcloud storage ls gs://
+      - run: gcloud storage ls gs://mishikawan-test001
