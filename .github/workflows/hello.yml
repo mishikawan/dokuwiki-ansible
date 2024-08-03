@@ -19,6 +19,7 @@ jobs:
       - id: 'auth'
         uses: google-github-actions/auth@v2
         with:
+          project_id: ${GCP_PROJECT}
           service_account: ${SA_ACCOUNT}
           workload_identity_provider: ${WI_PROVIDER}
       - uses: google-github-actions/setup-gcloud@v2
