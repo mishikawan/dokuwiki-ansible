@@ -19,8 +19,8 @@ jobs:
       - id: 'gcpauth'
         uses: google-github-actions/auth@v2
         with:
-          project_id: "${env.GCP_PROJECT}"
-          service_account: "${env.SA_ACCOUNT }"
-          workload_identity_provider: "${env.WI_PROVIDER}"
+          project_id: ${env.GCP_PROJECT}
+          service_account: ${env.SA_ACCOUNT }
+          workload_identity_provider: ${env.WI_PROVIDER}
       - uses: google-github-actions/setup-gcloud@v2
       - run: gcloud storage ls gs://
