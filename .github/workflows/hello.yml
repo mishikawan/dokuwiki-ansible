@@ -11,19 +11,7 @@ jobs:
   hello:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
       - uses: google-github-actions/auth@v2
         with:
-          project_id: ${{ env.GCP_PROJECT }}
-          workload_identity_provider: ${{ env.WI_PROVIDER }}
-      - uses: hashicorp/setup-terraform@v2
-        with:
-          terraform_version: ${{ env.TF_VERSION }}
-      - name: init
-        run: terraform init
-      - name: Terraform fmt
-        run: terraform fmt
-      - name: Terraform plan
-        run: terraform plan
-      - name: Terraform apply
-        run: terraform apply
+          service_account: '${{ env.SA_ACCOUNT }}'
+          workload_identity_provider: '${{ env.WI_PROVIDER }}'
