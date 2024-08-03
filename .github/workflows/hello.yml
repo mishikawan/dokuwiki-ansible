@@ -16,7 +16,7 @@ jobs:
       WI_PROVIDER: ${{ secrets.WI_PROVIDER }}
     steps:
       - uses: 'actions/checkout@v4'
-      - id: 'auth'
+      - id: 'gcpauth'
         uses: google-github-actions/auth@v2
         with:
           project_id: ${GCP_PROJECT}
