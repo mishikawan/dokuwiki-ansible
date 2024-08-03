@@ -7,6 +7,9 @@ env:
 jobs:
   hello:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     env:
       GCP_PROJECT: ${{ secrets.GCP_PROJECT }}
       SA_ACCOUNT: ${{ secrets.SA_ACCOUNT }}
