@@ -23,4 +23,15 @@ jobs:
           service_account: "${{ env.SA_ACCOUNT }}"
           workload_identity_provider: "${{ env.WI_PROVIDER }}"
       - uses: google-github-actions/setup-gcloud@v2
-      - run: gcloud storage ls gs://mishikawan-test001
+      - uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+      - name: init
+        run: terraform init
+      - name: Terraform fmt
+        run: terraform fmt
+      - name: Terraform plan
+        run: terraform plan
+      - name: Terraform apply
+        run: terraform apply
+
