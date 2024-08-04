@@ -25,7 +25,7 @@ jobs:
           project_id: "${{ env.GCP_PROJECT }}"
           service_account: "${{ env.SA_ACCOUNT }}"
           workload_identity_provider: "${{ env.WI_PROVIDER }}"
-      - name: init
+      - name: terraform init
         run: terraform init
       - name: Terraform plan
         run: terraform plan
